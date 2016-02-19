@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.leonelhernandez.SistemaDePaquetes.bean.Notificacion" table="Notificacion">
+	    <id name="idNotificacion" type="java.lang.Integer">
+            <column name="idNotificacion" />
+            <generator class="assigned" />
+        </id>
+        <property name="fechaNotificacion" type="java.lang.String">
+            <column name="fechaNotificacion" />
+        </property>
+        <property name="tipoDeNotificacion" type="java.lang.String">
+            <column name="tipoDeNotificacion" />
+        </property>
+        <property name="mensaje" type="java.lang.String">
+            <column name="mensaje" />
+        </property>
+	</class>
+</hibernate-mapping>

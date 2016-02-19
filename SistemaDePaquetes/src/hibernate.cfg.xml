@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Propiedades a conexion de base de datos -->
+        <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+        <property name="hibernate.connection.username">SistemaDePaquetes</property>
+	  	<property name="hibernate.connection.password">123</property>
+        <property name="connection.pool_size">1</property>
+        <property name="current_session_context_class">thread</property>
+        <property name="cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+        <property name="show_sql">true</property>
+		
+		<!-- Mapeo de las tablas de la base de datos -->
+		<mapping resource="org/leonelhernandez/SistemaDePaquetes/bean/Usuario.hbm.xml"/>
+        <mapping resource="org/leonelhernandez/SistemaDePaquetes/bean/Rol.hbm.xml"/>
+        <mapping resource="org/leonelhernandez/SistemaDePaquetes/bean/Paquete.hbm.xml"/>
+        <mapping resource="org/leonelhernandez/SistemaDePaquetes/bean/Envio.hbm.xml"/>
+        <mapping resource="org/leonelhernandez/SistemaDePaquetes/bean/Notificacion.hbm.xml"/>
+		<mapping resource="org/leonelhernandez/SistemaDePaquetes/bean/TipoPaquete.hbm.xml"/>	        
+    </session-factory>
+</hibernate-configuration>

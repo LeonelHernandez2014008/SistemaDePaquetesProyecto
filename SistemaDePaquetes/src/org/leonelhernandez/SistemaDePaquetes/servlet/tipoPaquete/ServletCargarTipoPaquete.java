@@ -1,0 +1,30 @@
+package org.leonelhernandez.SistemaDePaquetes.servlet.tipoPaquete;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.leonelhernandez.SistemaDePaquetes.bean.TipoPaquete;
+import org.leonelhernandez.SistemaDePaquetes.db.Conexion;
+
+@WebServlet("/ServletCargarTipoPaquete.do")
+public class ServletCargarTipoPaquete extends HttpServlet{
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		RequestDispatcher despachador=null;
+		Integer id=Integer.parseInt(req.getParameter("idTipoPaquete"));
+		req.setAttribute("tipoPaquete", Conexion.getInstancia().buscar(TipoPaquete.class, id));
+		despachador=req.getRequestDispatcher("tipoPaquete/editar.jsp");
+		despachador.forward(req, resp);
+	}
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doPost(req, resp);
+	}
+
+}
